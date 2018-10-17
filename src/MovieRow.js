@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/index.css'
 
   class MovieRow extends React.Component {
     viewMovie() {
@@ -9,20 +10,14 @@ import React from 'react';
     }
 
     render(){
-      return <table key={this.props.movie.id}>
-                <tbody>
-                  <tr>
-                    <td>
-                      <img src={this.props.movie.poster_src} alt="movie poster"/>
-                    </td>
-                    <td>
-                      <h3>{this.props.movie.title}</h3>
-                     <p>{this.props.movie.overview}</p>
-                     <input type="button" onClick={this.viewMovie.bind(this)} value="View" />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+      return <section className="synopsis" key={this.props.movie.id}>
+              <img className="synopsis__poster" src={this.props.movie.poster_src} height="221px" width="185" alt="movie poster"/>
+              <div className="synopsis__overview">
+                <h3 className="synopsis__title">{this.props.movie.title}</h3>
+                <p className="synopsis__overview">{this.props.movie.overview}</p>
+                <input className="btn__view" type="button" onClick={this.viewMovie.bind(this)} value="View" />
+              </div>
+            </section>
     }
   }
 

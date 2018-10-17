@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './css/index.css';
 import MovieRow from "./MovieRow.js";
 import $ from 'jquery';
 
@@ -9,7 +8,7 @@ class App extends Component {
     super(props);
     this.state = {};
 
-    this.performSearch("avengers");
+    this.performSearch();
   }
 
   performSearch(searchTerm) {
@@ -33,7 +32,7 @@ class App extends Component {
           console.log(movie.title);
           movie.poster_src = "https://image.tmdb.org/t/p/w185" + movie.poster_path;
           console.log(movie.poster_src);
-          const movieRow = <MovieRow key={movie.id} movie={movie}/>
+          const movieRow = <div className="rows"><MovieRow key={movie.id} movie={movie}/></div>
           movieRows.push(movieRow);
         })
 
@@ -55,23 +54,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <section className='App__titleBar'>
+          <img className='App__titleBar__logo' src="favicon.ico" alt="react logo"/>
+          <h1 className='App__titleBar__header'>MoviesDB Search</h1>
+        </section>
 
-        <table className='titleBar'>
-          <tbody>
-            <tr>
-              <td>
-                <img src="favicon.ico" alt="react logo"/>
-              </td>
-              <td>
-                <h1>MoviesDB Search</h1>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <h2 className='App__text'>Enter a Movie Title below to Search Now!</h2>
 
-        <input onChange={this.searchChangeHandler.bind(this)} placeholder="Enter search term..."/>
+        <input className='App__searchBar' onChange={this.searchChangeHandler.bind(this)} placeholder="Enter search term..."/>
 
-        {this.state.rows}
+        <div>
+          {this.state.rows}
+        </div>
+
       </div>
     );
   }
