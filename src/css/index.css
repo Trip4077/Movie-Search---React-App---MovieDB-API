@@ -182,10 +182,20 @@ code {
 .synopsis .synopsis__overview .synopsis__overview__buttons {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .synopsis .synopsis__overview .synopsis__overview__buttons .btn__view {
-  width: 30%;
+  height: 35px;
+  width: 15%;
+  border: 1px ridge white;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+}
+.synopsis .synopsis__overview .synopsis__overview__buttons .btn__view:hover {
+  background-color: white;
+  color: black;
+  font-weight: bold;
 }
 .App {
   display: flex;
@@ -215,8 +225,11 @@ code {
   width: 75%;
   height: 35px;
   padding: 15px;
-  margin-bottom: 40px;
+  margin: 25px 0;
   border: 1.5px solid rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   font-size: 2.4rem;
+}
+.App .App__searchBar:focus {
+  outline: none;
 }

@@ -39,10 +39,22 @@
     .synopsis__overview__buttons {
       width: 100%;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
 
       .btn__view {
-        width: 30%;
+        height: 35px;
+        width: 15%;
+        border: 1px ridge white;
+        border-radius: 5px;
+
+        background-color: transparent;
+        color: white;
+
+        &:hover {
+          background-color: white;
+          color: black;
+          font-weight: bold;
+        }
       }
     }
   }
